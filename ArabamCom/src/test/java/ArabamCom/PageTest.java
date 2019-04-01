@@ -17,7 +17,7 @@ public class PageTest extends Elements {
 	@Before
 	public void setUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\zeyne\\eclipse-workspace\\ProjectEkinoks\\chromedriver_win32\\chromedriver.exe");
+				".\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().fullscreen();
 		driver.get("https://www.arabam.com/");
@@ -38,27 +38,27 @@ public class PageTest extends Elements {
 			goToLogo().click();
 			getByPartial("48 Saat").click();
 			goToLogo().click();
-			getByPartial("Acil İlanlar").click();
+			getByPartial("Acil Ãlanlar").click();
 			goToLogo().click();
-			getByPartial("Fiyatı Düşenler").click();
+			getByPartial("FiyatÃ½ DÃ¼Ã¾enler").click();
 			goToLogo().click();
 			int divSayisi = 0, vitrinSayisi = 0;
 			List<WebElement> urunlerIsimListesi = driver
 					.findElements(By.cssSelector("div[class='col-lg-2 col-md-3 col-xs-6']"));
-			// Tüm vitrin ürünlerinin bulunduğu dinamik divler
+			// TÃ¼m vitrin Ã¼rÃ¼nlerinin bulunduÃ°u dinamik divler
 			List<WebElement> vitrinListesi = driver.findElements(By.cssSelector("div[class='pin-container']"));
-			// sizin için önerilenler kısmının divleri vitrin ürünleri içindeki bir
-			// className alındı
+			// sizin iÃ§in Ã¶nerilenler kÃ½smÃ½nÃ½n divleri vitrin Ã¼rÃ¼nleri iÃ§indeki bir
+			// className alÃ½ndÃ½
 			if (getByList("h4[class='model-name']").isDisplayed()) {
 				urunlerIsimListesi.add(getByList("div[class='col-lg-2 col-md-3 col-xs-6']"));
 				vitrinListesi.add(getByList("div[class='pin-container']"));
-				// sadece önerilenlerde bulunan bir değişkeni buldum ve tamamından çıkartım bu
-				// sayede vitrindekilerin sayısını almış oldum.
+				// sadece Ã¶nerilenlerde bulunan bir deÃ°iÃ¾keni buldum ve tamamÃ½ndan Ã§Ã½kartÃ½m bu
+				// sayede vitrindekilerin sayÃ½sÃ½nÃ½ almÃ½Ã¾ oldum.
 			}
 			divSayisi = urunlerIsimListesi.size();
 			vitrinSayisi = vitrinListesi.size();
 			int a = divSayisi - vitrinSayisi;
-			getByClass("search-input").sendKeys("Vitrindeki ürün sayısı " + a);
+			getByClass("search-input").sendKeys("Vitrindeki Ã¼rÃ¼n sayÃ½sÃ½ " + a);
 			getByClass("search-button").click();
 			goToLogo().click();
 			getByPartial("Motosiklet").click();
